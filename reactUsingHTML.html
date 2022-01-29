@@ -10,7 +10,12 @@
 <body>
   <div id="root"></div>
   <script type="text/javascript">
-    ReactDOM.render(React.createElement('h1', null, 'Hello World with React'), document.getElementById('root'));
+    const headerStyle = {
+      style: {
+        color: 'blue',
+      },
+    };
+    ReactDOM.render(React.createElement('h1', headerStyle, 'Hello World with React'), document.getElementById('root'));
   </script>
 </body>
 </html>
