@@ -3,19 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello React 1</title>
+  <title>Hello React</title>
   <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
 </head>
 <body>
   <div id="root"></div>
   <script type="text/javascript">
-    const headerStyle = {
+    const divStyle = {
       style: {
-        color: 'blue',
+        border: '1px solid red',
+        borderRadius: '4px',
       },
     };
-    ReactDOM.render(React.createElement('h1', headerStyle, 'Hello World with React'), document.getElementById('root'));
+    const h1Style = { style: { color: 'red', } };
+    const h2Style = { style: { color: 'green', } };
+    const h3Style = { style: { color: 'blue', } };
+    ReactDOM.render(
+      React.createElement(
+        'div',
+        divStyle,
+        React.createElement('h1', h1Style, 'Hello World with React'),
+        React.createElement('h2', h2Style, 'Hello World with React'),
+        React.createElement('h3', h3Style, 'Hello World with React'),
+      ),
+      document.getElementById('root')
+    );
   </script>
 </body>
 </html>
