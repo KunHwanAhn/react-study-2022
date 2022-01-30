@@ -12,15 +12,28 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
+    const title = 'JSX Expression';
+    const col = {
+      col2: 'col-2',
+      col10: 'col-10',
+    }
+    const col2 = 'col-2';
+    const col10 = 'col-10';
+
     ReactDOM.render(
       (
         <div className="container">
           <div className="row">
+            <div className="col-12">
+              {title}
+            </div>
+          </div>
+          <div className="row">
             <div className="col-2">
-              COL-2
+              {col.col2}
             </div>
             <div className="col-10">
-              COL-10
+              {col.col10}
             </div>
           </div>
         </div>
