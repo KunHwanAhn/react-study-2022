@@ -59,12 +59,44 @@
       );
     };
 
-    const BookList = () => {
+    const BookList = ({ sortOrder }) => {
       return (
         <>
+        {
+          (sortOrder === 'ASC')
+        ?
+          <>
           <BookCard title={book1.title} description={book1.description} price={ 30000 } />
           <BookCard title={book2.title} description={book2.description} price={ 35000 } />
           <BookCard title="제목3" description="설명3" price={ 30000 }/>
+          </>
+          :
+          <>
+          <BookCard title="제목3" description="설명3" price={ 30000 }/>
+          <BookCard title={book2.title} description={book2.description} price={ 35000 } />
+          <BookCard title={book1.title} description={book1.description} price={ 30000 } />
+          </>
+        }
+        </>
+      );
+    };
+
+    const BookListOther = ({ sortOrder }) => {
+      if (sortOrder === 'ASC') {
+        return (
+          <>
+            <BookCard title={book1.title} description={book1.description} price={ 30000 } />
+            <BookCard title={book2.title} description={book2.description} price={ 35000 } />
+            <BookCard title="제목3" description="설명3" price={ 30000 }/>
+          </>
+        );
+      }
+
+      return (
+        <>
+          <BookCard title="제목3" description="설명3" price={ 30000 }/>
+          <BookCard title={book2.title} description={book2.description} price={ 35000 } />
+          <BookCard title={book1.title} description={book1.description} price={ 30000 } />
         </>
       );
     };
@@ -73,7 +105,9 @@
       return (
         <>
           <BookTitle />
-          <BookList />
+          <BookList sortOrder="ASC" />
+          <hr />
+          <BookListOther sortOrder="ASC" />
           <BookFooter />
           <Copyright />
         </>
