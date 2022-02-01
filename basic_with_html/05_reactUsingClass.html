@@ -101,7 +101,8 @@
       );
     };
 
-    const BookApp = () => {
+    // 함수형 컴포넌트
+    const BookAppOther = () => {
       return (
         <>
           <BookTitle />
@@ -112,6 +113,22 @@
           <Copyright />
         </>
       );
+    };
+
+    // 클래스형 컴포넌트
+    class BookApp extends React.Component {
+      render() {
+        return (
+          <>
+            <BookTitle />
+            <BookList sortOrder="ASC" />
+            <hr />
+            <BookListOther sortOrder="ASC" />
+            <BookFooter />
+            <Copyright />
+          </>
+        );
+      }
     };
 
     ReactDOM.render(<BookApp />, document.getElementById('root'));
