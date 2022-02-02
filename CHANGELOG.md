@@ -1,4 +1,4 @@
-# react-study-2022-01
+# CHANGELOG
 
-## basic_with_html
+## v22.02.0 (2022-02-02)
 - CDN을 사용한 리액트 기본 학습

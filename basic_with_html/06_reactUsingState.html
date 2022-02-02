@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello React State</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.16.12/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const book1 = {
+      title: '제목1',
+      description: '설명1',
+    };
+    const book2 = {
+      title: '제목2',
+      description: '설명2',
+    };
+
+    const BookTitle = () => {
+      return (
+        <div className="row">
+          <h1>My Component</h1>
+        </div>
+      );
+    };
+
+    const BookFooter = () =>  <p>Book Footer</p>;
+
+    const Copyright = () => {
+      return (
+        <p>Copyright &copy;</p>
+      );
+    };
+
+    const BookCard = ({ title, description, price }) => {
+      return (
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              { title }
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-2">
+              { title }
+            </div>
+            <div className="col-10">
+              { description }
+              <hr />
+              { price }
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    class BookList extends React.Component {
+      state = {
+        theme: 'blue',
+      };
+
+      blueTheme = () => { this.setState({ theme: 'blue' }) };
+      whiteTheme = () => { this.setState({ theme: 'white' }) };
+
+      render() {
+        return (
+          <>
+            <div>{this.state.theme === 'white' ? 'white theme' : 'blue theme'}</div>
+            <div>
+              <button onClick={ () => { this.setState({ theme: 'white' }) } }>To White</button>
+              <button onClick={ this.whiteTheme }>To White2</button>
+              <button onClick={ () => { this.setState({ theme: 'blue' }) } }>To Blue</button>
+              <button onClick={ this.blueTheme }>To Blue2</button>
+            </div>
+            <BookCard title={book1.title} description={book1.description} price={ 30000 } />
+            <BookCard title={book2.title} description={book2.description} price={ 35000 } />
+            <BookCard title="제목3" description="설명3" price={ 30000 }/>
+          </>
+        );
+      }
+    };
+
+    // 클래스형 컴포넌트
+    class BookApp extends React.Component {
+      render() {
+        return (
+          <>
+            <BookTitle />
+            <BookList />
+            <BookFooter />
+            <Copyright />
+          </>
+        );
+      }
+    };
+
+    ReactDOM.render(<BookApp />, document.getElementById('root'));
+  </script>
+</body>
+</html>
