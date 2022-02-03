@@ -11,7 +11,7 @@ export default class ReactGuideAbout extends Component {
         <h3>{message}</h3>
 
         <p>이 사이트는 React {version} 학습을 위한 데모 사이트입니다.</p>
-        <p>학습을 환료한 후에 현재 사이트가 만들어집니다.</p>
+        <p>학습을 완료한 후에 현재 사이트가 만들어집니다.</p>
 
         <div className='row'>
           <div className='col-md-6'>

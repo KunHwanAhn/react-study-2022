@@ -6,6 +6,7 @@ import ReactGuide from './components/ReactGuide';
 import ReactGuideAbout from './components/ReactGuideAbout';
 import ReactGuideContact from './components/ReactGuideContact';
 import ReactGuideCopyright from './components/ReactGuideCopyright';
+import ReactGuideStateDescription from './components/ReactGuideStateDescription';
 
 function App() {
   return (
@@ -16,11 +17,13 @@ function App() {
           <Link to="/">Home</Link>
           <Link to="/about" className='ms-2'>About</Link>
           <Link to="/contact" className='ms-2'>Contact</Link>
+          <Link to="/state-description" className='ms-2'>State Description</Link>
         </nav>
         <Routes>
           <Route path="/" element={<ReactGuide />} />
           <Route path="/about" element={<ReactGuideAbout />} />
           <Route path="/contact" element={<ReactGuideContact />} />
+          <Route path="/state-description" element={<ReactGuideStateDescription />} />
         </Routes>
       </div>
       <ReactGuideCopyright />
