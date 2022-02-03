@@ -8,6 +8,7 @@ import ReactGuideContact from './components/ReactGuideContact';
 import ReactGuideCopyright from './components/ReactGuideCopyright';
 import ReactGuideStateDescription from './components/ReactGuideStateDescription';
 import ReactGuideOnClick from './components/ReactGuideOnClick';
+import ReactGuidBinding from './components/ReactGuideBinding';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Link to="/contact" className='ms-2'>Contact</Link>
           <Link to="/state-description" className='ms-2'>State Description</Link>
           <Link to="/on-click" className='ms-2'>OnClick</Link>
+          <Link to="/binding" className='ms-2'>Binding</Link>
         </nav>
         <Routes>
           <Route path="/" element={<ReactGuide />} />
@@ -27,6 +29,7 @@ function App() {
           <Route path="/contact" element={<ReactGuideContact />} />
           <Route path="/state-description" element={<ReactGuideStateDescription />} />
           <Route path="/on-click" element={<ReactGuideOnClick />} />
+          <Route path="/binding" element={<ReactGuidBinding />} />
         </Routes>
       </div>
       <ReactGuideCopyright />
