@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+* ::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+  height: auto;
+}
