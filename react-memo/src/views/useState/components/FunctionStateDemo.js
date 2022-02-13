@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function FUnctionStateDemo() {
+export default function FunctionStateDemo() {
   const [ myMessage, setMyMessage ] = useState('Hi');
 
   // useState()를 사용하여 함수형 컴포넌트에서 상태 관리

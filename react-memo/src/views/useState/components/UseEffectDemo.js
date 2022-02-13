@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function FUnctionStateDemo() {
+export default function UseEffectDemo() {
   const [agree, setAgree] = useState(false);
 
   // NOTE: 모든 변경사항에서 호출됨.
