@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import axios from 'axios';
 
 export default class CrudIndex extends Component {
   constructor(props) {
@@ -20,10 +21,9 @@ export default class CrudIndex extends Component {
     this.setState({ loading: true });
 
     try {
-      const res = await fetch('https://jsonplaceholder.typicode.com/users');
-      const users = await res.json();
+      const res = await axios.get('https://jsonplaceholder.typicode.com/users');
 
-      this.setState({ users });
+      this.setState({ users: res.data });
     } catch (error) {
       console.error(error);
     }
