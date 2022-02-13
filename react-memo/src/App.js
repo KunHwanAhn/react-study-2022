@@ -10,6 +10,7 @@ import ReactGuideStateDescription from './components/ReactGuideStateDescription'
 import ReactGuideOnClick from './components/ReactGuideOnClick';
 import ReactGuidBinding from './components/ReactGuideBinding';
 import TodoListInMemory from './components/TodoListInMemory';
+import UseState from './views/useState/UseState';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Link to="/on-click" className='ms-2'>OnClick</Link>
           <Link to="/binding" className='ms-2'>Binding</Link>
           <Link to="/todo" className='ms-2'>TODO List</Link>
+          <Link to="/use-state" className='ms-2'>use State</Link>
         </nav>
         <Routes>
           <Route path="/" element={<ReactGuide />} />
@@ -33,6 +35,7 @@ function App() {
           <Route path="/on-click" element={<ReactGuideOnClick />} />
           <Route path="/binding" element={<ReactGuidBinding />} />
           <Route path="/todo" element={<TodoListInMemory />} />
+          <Route path="/use-state" element={<UseState />} />
         </Routes>
       </div>
       <ReactGuideCopyright />
