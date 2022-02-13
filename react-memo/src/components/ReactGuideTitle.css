@@ -1,0 +1,9 @@
+.react-guide-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #808080;
+  color: whitesmoke;
+  padding: 16px;
+  font-size: 1.5rem;
+}
