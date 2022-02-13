@@ -11,6 +11,9 @@ export default class CrudIndex extends Component {
     };
 
     this.getUsers = this.getUsers.bind(this);
+    this.goCreatePage = this.goCreatePage.bind(this);
+    this.goEditPage = this.goEditPage.bind(this);
+    this.goDeletePage = this.goDeletePage.bind(this);
   }
 
   async componentDidMount() {
@@ -31,6 +34,18 @@ export default class CrudIndex extends Component {
     this.setState({ loading: false });
   }
 
+  goCreatePage() {
+    console.log('Create');
+  }
+
+  goEditPage(id) {
+    console.log(`Edit by ${id}`);
+  }
+
+  goDeletePage(id) {
+    console.log(`Delete by ${id}`);
+  }
+
   renderUserTable(users) {
     return (
       <table className='table table-striped'>
@@ -40,6 +55,7 @@ export default class CrudIndex extends Component {
             <td>Name</td>
             <td>Username</td>
             <td>Email</td>
+            <td>Action</td>
           </tr>
         </thead>
         <tbody>
@@ -50,6 +66,20 @@ export default class CrudIndex extends Component {
                 <td>{ user.name }</td>
                 <td>{ user.username }</td>
                 <td>{ user.email }</td>
+                <td className='text-nowrap'>
+                  <button
+                    className='btn btn-sm btn-primary'
+                    onClick={() => this.goEditPage(user.id)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className='btn btn-sm btn-danger ms-1'
+                    onClick={() => this.goDeletePage(user.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
@@ -63,7 +93,15 @@ export default class CrudIndex extends Component {
 
     return (<>
       <div>
-        <h1>CRUD</h1>
+        <h1 className='d-flex align-items-center'>
+          <span>CRUD</span>
+          <button
+            className='btn btn-primary ms-2'
+            onClick={this.goCreatePage}
+          >
+            <span className='fa fa-plus' />
+          </button>
+        </h1>
         <h3>리액트를 사용한 CRUD 예제 프로젝트입니다.</h3>
         {contents}
       </div>
