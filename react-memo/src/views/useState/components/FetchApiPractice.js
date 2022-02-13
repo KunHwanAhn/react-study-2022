@@ -26,7 +26,7 @@ export default class FetchApiPractice extends Component {
   }
 
   render() {
-    let contents = this.state.loading ? <p>loading...</p> : <UserListTable users={this.state.users} />;
+    const contents = this.state.loading ? <p>loading...</p> : <UserListTable users={this.state.users} />;
 
     return (<>
       <h3>FetchApiPractice</h3>

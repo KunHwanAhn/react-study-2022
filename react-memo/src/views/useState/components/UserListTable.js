@@ -1,5 +1,5 @@
 export default function UserListTable({ users }) {
-  return (<>
+  return (
     <table className='table table-bordered'>
       <thead>
         <tr>
@@ -22,5 +22,5 @@ export default function UserListTable({ users }) {
         })}
       </tbody>
     </table>
-  </>);
+  );
 }
