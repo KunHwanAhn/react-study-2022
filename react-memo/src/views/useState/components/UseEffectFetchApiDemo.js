@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
 
+import UserListTable from './UserListTable';
+
 export default function UseEffectFectchApiDemo() {
-  const [forecasts, setForecasts] = useState(null);
+  const [users, setUsers] = useState(null);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((res) => res.json())
-      .then(setForecasts)
+      .then(setUsers)
       .catch(console.error);
   }, []);
 
   return (<>
     <h3>UseEffectFecthApiDemo</h3>
-    <div>{ JSON.stringify(forecasts, null, 2) }</div>
+    <UserListTable users={users} />
   </>);
 }
