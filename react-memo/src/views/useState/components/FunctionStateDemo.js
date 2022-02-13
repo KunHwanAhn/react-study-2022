@@ -15,8 +15,8 @@ export default function FUnctionStateDemo() {
     <button
       className="ms-1 btn btn-secondary"
       onClick={ () => setMyMessage('Bye')}
-      >
-        Bye
-      </button>
+    >
+      Bye
+    </button>
   </>);
 }

@@ -1,12 +1,16 @@
 import { Component } from 'react';
 
-import FUnctionStateDemo from './components/FunctionStateDemo';
+import FunctionStateDemo from './components/FunctionStateDemo';
+import UseEffectDemo from './components/UseEffectDemo';
 
 export default class UseState extends Component {
   render() {
     return (<>
       <h1>FunctionStateDemo Component</h1>
-      <FUnctionStateDemo />
+      <FunctionStateDemo />
+      <hr />
+      <h1>UseEffectDemo Component</h1>
+      <UseEffectDemo />
       <hr />
     </>);
   }
