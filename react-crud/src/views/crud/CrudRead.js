@@ -1,52 +1,44 @@
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
-export default class CrudIndex extends Component {
-  constructor(props) {
-    super(props);
+export default function CrudRead() {
+  const navigate = useNavigate();
 
-    this.state = {
-      users: [],
-      loading: false,
-    };
+  const [ loading, setLoading ] = useState(false);
+  const [ users, setUsers ] = useState([]);
 
-    this.getUsers = this.getUsers.bind(this);
-    this.goCreatePage = this.goCreatePage.bind(this);
-    this.goEditPage = this.goEditPage.bind(this);
-    this.goDeletePage = this.goDeletePage.bind(this);
-  }
+  useEffect(() => {
+    async function getUsers() {
+      setLoading(true);
 
-  async componentDidMount() {
-    await this.getUsers();
-  }
+      try {
+        const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
 
-  async getUsers() {
-    this.setState({ loading: true });
+        setUsers(data);
+      } catch (error) {
+        console.error(error);
+      }
 
-    try {
-      const res = await axios.get('https://jsonplaceholder.typicode.com/users');
-
-      this.setState({ users: res.data });
-    } catch (error) {
-      console.error(error);
+      setLoading(false);
     }
 
-    this.setState({ loading: false });
+    getUsers();
+  }, []);
+
+  function goCreatePage() {
+    navigate('create');
+  };
+
+  function goEditPage(id) {
+    navigate(`${id}/update`);
   }
 
-  goCreatePage() {
-    console.log('Create');
+  function goDeletePage(id) {
+    navigate(`${id}/delete`);
   }
 
-  goEditPage(id) {
-    console.log(`Edit by ${id}`);
-  }
-
-  goDeletePage(id) {
-    console.log(`Delete by ${id}`);
-  }
-
-  renderUserTable(users) {
+  function renderUserTable(users) {
     return (
       <table className='table table-striped'>
         <thead>
@@ -69,13 +61,13 @@ export default class CrudIndex extends Component {
                 <td className='text-nowrap'>
                   <button
                     className='btn btn-sm btn-primary'
-                    onClick={() => this.goEditPage(user.id)}
+                    onClick={() => goEditPage(user.id)}
                   >
                     Edit
                   </button>
                   <button
                     className='btn btn-sm btn-danger ms-1'
-                    onClick={() => this.goDeletePage(user.id)}
+                    onClick={() => goDeletePage(user.id)}
                   >
                     Delete
                   </button>
@@ -88,16 +80,15 @@ export default class CrudIndex extends Component {
     );
   }
 
-  render() {
-    const contents = this.state.loading ? <p><em>Loading...</em></p> : this.renderUserTable(this.state.users);
+  const contents = loading ? <p><em>Loading...</em></p> : renderUserTable(users);
 
-    return (<>
+    return (
       <div>
         <h1 className='d-flex align-items-center'>
           <span>CRUD</span>
           <button
             className='btn btn-primary ms-2'
-            onClick={this.goCreatePage}
+            onClick={goCreatePage}
           >
             <span className='fa fa-plus' />
           </button>
@@ -105,6 +96,5 @@ export default class CrudIndex extends Component {
         <h3>리액트를 사용한 CRUD 예제 프로젝트입니다.</h3>
         {contents}
       </div>
-    </>);
-  }
-}
+    );
+};
